@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pouya Tirdad - Resume</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        .resume-container {
+            width: 210mm; /* A4 width */
+            min-height: 297mm;
+            background-color: #fff;
+            display: flex;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+
+        /* LEFT SIDEBAR */
+        .left-column {
+            width: 35%;
+            background-color: #1a365d;
+            color: #fff;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            background-color: #fff; /* Added white background here */
+            border: 4px solid #fff;
+            margin-bottom: 30px;
+        }
+
+        .left-column h3 {
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #4a6fa5;
+            width: 100%;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            margin-top: 25px;
+            color: #fff;
+        }
+
+        .contact-info p {
+            font-size: 12px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #cbd5e1;
+            word-break: break-all;
+        }
+
+        .contact-info i {
+            color: #63b3ed;
+            width: 15px;
+            text-align: center;
+        }
+
+        .contact-info a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .contact-info a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        .skills-list, .education-list, .languages-list {
+            list-style: none;
+            width: 100%;
+            font-size: 12px;
+            color: #cbd5e1;
+        }
+
+        .skills-list li {
+            margin-bottom: 6px;
+            position: relative;
+            padding-left: 12px;
+        }
+
+        .skills-list li::before {
+            content: "•";
+            color: #63b3ed;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .education-list li, .languages-list li {
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .education-list strong {
+            color: #fff;
+            display: block;
+        }
+
+        /* RIGHT MAIN CONTENT */
+        .right-column {
+            width: 65%;
+            padding: 40px 35px;
+            color: #333;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            color: #1a365d;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        .header h2 {
+            font-size: 16px;
+            color: #4a5568;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .header h2::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background-color: #1a365d;
+        }
+
+        .section-title {
+            font-size: 16px;
+            color: #1a365d;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            margin-top: 25px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 5px;
+        }
+
+        .profile-text {
+            font-size: 13px;
+            line-height: 1.6;
+            color: #4a5568;
+            text-align: justify;
+        }
+
+        /* WORK EXPERIENCE */
+        .job {
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .job::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 6px;
+            height: 6px;
+            background-color: #1a365d;
+            border-radius: 50%;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 3px;
+        }
+
+        .job-title {
+            font-weight: 700;
+            font-size: 14px;
+            color: #2d3748;
+        }
+
+        .job-company {
+            font-weight: 600;
+            font-size: 13px;
+            color: #4a5568;
+        }
+
+        .job-date {
+            font-size: 12px;
+            color: #718096;
+            font-weight: 600;
+        }
+
+        .job ul {
+            list-style: none;
+            margin-top: 8px;
+        }
+
+        .job ul li {
+            font-size: 12px;
+            line-height: 1.5;
+            color: #4a5568;
+            margin-bottom: 6px;
+            position: relative;
+            padding-left: 12px;
+        }
+
+        .job ul li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #1a365d;
+            font-weight: bold;
+        }
+
+        @media print {
+            body { background: none; padding: 0; }
+            .resume-container { box-shadow: none; width: 100%; min-height: 100%; }
+            .left-column { background-color: #1a365d !important; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="resume-container">
+    
+    <!-- LEFT COLUMN -->
+    <div class="left-column">
+        <!-- Make sure your image is named profile.png and is in the same folder -->
+        <img src="profile.png" alt="Pouya Tirdad" class="profile-pic">
+        
+        <h3>Contact</h3>
+        <div class="contact-info">
+            <p>📞 09032300258</p>
+            <p>✉️ <a href="mailto:Pouyatirdad70@gmail.com">Pouyatirdad70@gmail.com</a></p>
+            <p>📍 Tehran, Sadeghiyeh</p>
+            <p>🔗 <a href="https://ir.linkedin.com/in/pouya-tirdad-578245202" target="_blank">LinkedIn</a></p>
+            <p>💻 <a href="https://github.com/pouyatirdad" target="_blank">GitHub</a></p>
+        </div>
+
+        <h3>Skills</h3>
+        <ul class="skills-list">
+            <li>C# 12</li>
+            <li>.NET 8 / ASP.NET Core</li>
+            <li>Entity Framework Core 8</li>
+            <li>SQL Server & T-SQL</li>
+            <li>Clean Architecture & CQRS</li>
+            <li>Domain-Driven Design</li>
+            <li>Event-Driven Architecture</li>
+            <li>RabbitMQ & MassTransit</li>
+            <li>MongoDB, Redis, Elasticsearch</li>
+            <li>S3</li>
+            <li>Hangfire & Polly</li>
+            <li>Docker & Azure DevOps</li>
+            <li>TDD, xUnit, Moq</li>
+            <li>SignalR & FluentValidation</li>
+            <li>HTML, CSS, SASS, JS, React</li>
+        </ul>
+
+        <h3>Education</h3>
+        <ul class="education-list">
+            <li>
+                ISLAMIC AZAD UNIVERSITY<br>
+                Bachelor of IT Software Engineering
+            </li>
+        </ul>
+
+        <h3>Languages</h3>
+        <ul class="languages-list">
+            <li>Persian (Native)</li>
+            <li>English (Professional)</li>
+        </ul>
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="right-column">
+        <div class="header">
+            <h1>Pouya Tirdad</h1>
+            <h2>Senior .NET Backend Developer</h2>
+        </div>
+
+        <div class="section-title">Profile</div>
+        <p class="profile-text">
+            Energetic and results-driven Senior .NET Developer with 6 years of experience in architecting and developing high-scale, event-driven backend systems. Expert in Clean Architecture, CQRS, and Domain-Driven Design (DDD), with a strong focus on performance optimization and Test-Driven Development (TDD). Proven track record of managing complex enterprise solutions.
+        </p>
+
+        <div class="section-title">Work Experience</div>
+
+        <div class="job">
+            <div class="job-header">
+                <span class="job-title">Flytoday</span>
+                <span class="job-date">2024 - Present</span>
+            </div>
+            <div class="job-company">Senior Developer</div>
+            <ul>
+                <li>Lead backend engineer for a comprehensive B2B/B2C hotel-contracting and accommodation-distribution platform (hotel onboarding, contracts, rates, booking engine, partner distribution API, wallets, and guest-host chat).</li>
+                <li>Architected and developed a highly scalable system using .NET 8, C# 12, and Clean Architecture principles.</li>
+                <li>Implemented CQRS with a custom mediator, separating read/write concerns.</li>
+                <li>Designed event-driven workflows using RabbitMQ, MassTransit, and a custom Transactional Outbox pattern.</li>
+                <li>Engineered a scalable polyglot persistence layer using SQL Server, MongoDB, Redis, and Elasticsearch for analytics and caching.</li>
+                <li>Maintained high code quality via Test-Driven Development (TDD).</li>
+                <li>Managed CI/CD pipelines on Azure DevOps, containerizing services with Docker and deploying via Harbor registry.</li>
+                <li>Enforced strict security protocols (JWT, RBAC, OWASP Top 10) and utilized AI-assisted development tools to optimize team workflows.</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <span class="job-title">DanaPardaz</span>
+                <span class="job-date">2023 - 2024</span>
+            </div>
+            <div class="job-company">Full Stack Developer</div>
+            <ul>
+                <li>Developed and optimized full-stack .NET applications, writing clean and efficient code while reviewing and updating existing applications for functionality and performance.</li>
+                <li>Utilized SQL Server extensively as the primary database, implementing stored procedures (SP), scheduled tasks, and triggers to optimize data operations and ensure seamless data flow.</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <span class="job-title">Webone</span>
+                <span class="job-date">2021 - 2022</span>
+            </div>
+            <div class="job-company">.NET Backend Developer</div>
+            <ul>
+                <li>Played a key role in the digital development of companies by designing and implementing over 30 diverse websites.</li>
+                <li>Focused on grasping foundational concepts of SQL Server database automation (SPs, triggers, jobs) to optimize queries and enhance system efficiency.</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <span class="job-title">Spad</span>
+                <span class="job-date">2020 - 2021</span>
+            </div>
+            <div class="job-company">Frontend & FullStack Developer</div>
+            <ul>
+                <li>Worked as a Frontend Developer using HTML, CSS, and JavaScript for 6 months, transitioning to Backend development for 8 months with C# and ASP.NET MVC/Core.</li>
+                <li>Contributed to a dedicated management panel (ASP.NET Core) implemented by the internal team (frontend and backend).</li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
